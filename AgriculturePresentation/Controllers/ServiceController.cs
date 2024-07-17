@@ -63,6 +63,11 @@ namespace AgriculturePresentation.Controllers
             _serviceService.Update(service);
             return RedirectToAction("Index");
         }
+
+        public IActionResult Deneme()
+        {
+            return View(); 
+        }
     }
 }
 

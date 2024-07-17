@@ -1,0 +1,42 @@
+﻿@model EntityLayer.Concrete.Team
+
+@{
+    ViewData["Title"] = "AddTeam";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Yeni Takım Üyesi Girişi</h4>
+            <form class="forms-sample" method="post">
+                <div class="form-group">
+                    <label for="exampleInputName1" asp-for="PersonName">Adı Soyadı</label>
+                    <input type="text" class="form-control"  placeholder="Ad Soyad" asp-for="PersonName">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail3" asp-for="Title">Ünvanı</label>
+                    <input type="text" class="form-control"  placeholder="Ünvan" asp-for="Title">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputName1" asp-for="InstagramUrl">Instagram</label>
+                    <input type="text" class="form-control"  placeholder="URL" asp-for="InstagramUrl">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputName1" asp-for="FacebookUrl">Facebook</label>
+                    <input type="text" class="form-control" placeholder="URL" asp-for="FacebookUrl">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputName1" asp-for="TwitterUrl">X</label>
+                    <input type="text" class="form-control" placeholder="URL" asp-for="TwitterUrl">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputName1" asp-for="WebsiteUrl">Kişisel Web Sayfası</label>
+                    <input type="text" class="form-control" placeholder="URL" asp-for="WebsiteUrl">
+                </div>
+               
+                <button type="submit" class="btn btn-outline-info">Kaydet</button>
+            </form>
+        </div>
+    </div>
+</div>
