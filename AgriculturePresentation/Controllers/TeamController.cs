@@ -33,8 +33,54 @@ namespace AgriculturePresentation.Controllers
         {
             TeamValidator teamValidator = new TeamValidator();
             ValidationResult validationResult = teamValidator.Validate(team);
-            _teamService.Insert(team);
+            if(validationResult.IsValid)
+            {
+                _teamService.Insert(team);
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                foreach(var item in validationResult.Errors)
+                {
+                    ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+                }
+            }
+            return View();
+        }
+
+        public IActionResult DeleteTeam(int id)
+        {
+            var  value = _teamService.GetById(id);
+            _teamService.Delete(value);
             return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public IActionResult EditTeam(int id)
+        {
+            var value = _teamService.GetById(id);
+            return View(value);
+        }
+        [HttpPost]
+        public IActionResult EditTeam(Team team)
+        {
+            TeamValidator teamValidator = new TeamValidator();
+            ValidationResult validationResult = teamValidator.Validate(team);
+            if (validationResult.IsValid)
+            {
+                _teamService.Update(team);
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                foreach (var item in validationResult.Errors)
+                {
+                    ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+                }
+            }
+
+            return View();
+            
         }
     }
 }

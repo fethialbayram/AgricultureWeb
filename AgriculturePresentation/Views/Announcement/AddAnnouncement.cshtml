@@ -1,23 +1,23 @@
-﻿@model EntityLayer.Concrete.Team
+﻿@model EntityLayer.Concrete.Announcement
 
 @{
-    ViewData["Title"] = "AddTeam";
+    ViewData["Title"] = "AddAnnouncement";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
 <div class="col-12 grid-margin stretch-card">
     <div class="card">
         <div class="card-body">
-            <h4 class="card-title">Yeni Takım Üyesi Girişi</h4>
+            <h4 class="card-title">Yeni Duyuru Girişi</h4>
             <form class="forms-sample" method="post">
                 <div class="form-group">
-                    <label for="exampleInputName1" asp-for="PersonName">Adı Soyadı</label>
-                    <input type="text" class="form-control"  placeholder="Ad Soyad" asp-for="PersonName">
+                    <label for="exampleInputName1" asp-for="PersonName">Başlık</label>
+                    <input type="text" class="form-control" placeholder="Ad Soyad" asp-for="PersonName">
                     <span asp-validation-for="PersonName" class="text-danger"></span>
                 </div>
                 <div class="form-group">
                     <label for="exampleInputEmail3" asp-for="Title">Ünvanı</label>
-                    <input type="text" class="form-control"  placeholder="Ünvan" asp-for="Title">
+                    <input type="text" class="form-control" placeholder="Ünvan" asp-for="Title">
                     <span asp-validation-for="Title" class="text-danger"></span>
                 </div>
                 <div class="form-group">
@@ -27,7 +27,7 @@
                 </div>
                 <div class="form-group">
                     <label for="exampleInputName1" asp-for="InstagramUrl">Instagram</label>
-                    <input type="text" class="form-control"  placeholder="URL" asp-for="InstagramUrl">
+                    <input type="text" class="form-control" placeholder="URL" asp-for="InstagramUrl">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputName1" asp-for="FacebookUrl">Facebook</label>
@@ -41,9 +41,10 @@
                     <label for="exampleInputName1" asp-for="WebsiteUrl">Kişisel Web Sayfası</label>
                     <input type="text" class="form-control" placeholder="URL" asp-for="WebsiteUrl">
                 </div>
-               
+
                 <button type="submit" class="btn btn-outline-info">Kaydet</button>
             </form>
         </div>
     </div>
 </div>
+
