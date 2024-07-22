@@ -30,9 +30,12 @@ namespace AgriculturePresentation.Controllers
 
         public IActionResult AddAnnouncement(Announcement announcement)
         {
+            announcement.Date = DateTime.Parse(DateTime.Today.ToShortDateString());
+            announcement.Status = false;
             _announcementService.Insert(announcement);
-            return View();
+            return RedirectToAction("Index");
         }
+
 
         public IActionResult DeleteAnnouncement(int id)
         {
@@ -56,5 +59,32 @@ namespace AgriculturePresentation.Controllers
             _announcementService.Update(announcement);
             return RedirectToAction("Index");
         }
+
+        //public IActionResult ChangeStatusToTrue(int id)
+        //{
+        //    _announcementService.AnnouncementStatusToTrue(id);
+        //    return RedirectToAction("Index");
+        //}
+
+        //public IActionResult ChangeStatusToFalse(int id)
+        //{
+        //    _announcementService.AnnouncementStatusToFalse(id);
+        //    return RedirectToAction("Index");
+        //}
+
+        public IActionResult ChangeStatus(int id)
+        {
+            var announcement = _announcementService.GetById(id);
+            if (announcement != null)
+            {
+                announcement.Status = !announcement.Status; // Durumu tersine çevirir
+                _announcementService.Update(announcement);
+            }
+            return RedirectToAction("Index");
+        }
+
+
+
+
     }
 }
