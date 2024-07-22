@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.Abstract
 {
-    public interface IContactInterface : IGenericService<Contact>
+    public interface IContactService : IGenericService<Contact>
     {
     }
 }

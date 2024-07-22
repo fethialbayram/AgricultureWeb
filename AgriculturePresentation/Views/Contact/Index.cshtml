@@ -1,0 +1,53 @@
+﻿@using EntityLayer.Concrete
+@model List<Contact>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Mesaj Listesi</h4>
+            <div class="table-responsive">
+                @if (!Model.Any())
+                {
+                    <div class="alert alert-warning" role="alert">
+                        Tabloya eklenmiş veri bulunmamaktadır.
+                    </div>
+                }
+                else
+                {
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Ad Soyad</th>
+                                <th>E-Posta</th>
+                                <th>Tarih</th>
+                                <th>Mesajı Görüntüle</th>
+                                <th>Sil</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.Id</td>
+                                    <td>@item.Name</td>
+                                    <td>@item.Mail</td>
+                                    <td>@item.Date</td>
+                                    <td><a href="/Contact/MessageDetails/@item.Id" class="btn btn-outline-success">Mesajı Görüntüle</a></td>
+                                    <td><a href="/Contact/DeleteMessage/@item.Id" class="btn btn-outline-danger">Sil</a></td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                }
+                <br />
+            </div>
+        </div>
+    </div>
+</div>
+

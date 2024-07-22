@@ -1,0 +1,42 @@
+﻿@model EntityLayer.Concrete.Address
+
+@{
+    ViewData["Title"] = "EditAddress";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Adres Güncelleme Sayfası</h4>
+            <form class="forms-sample" method="post">
+                <div class="form-group">
+                    @Html.HiddenFor(x => x.Id)
+                    <label for="exampleInputName1" asp-for="Description1">Adres</label>
+                    <input type="text" class="form-control" placeholder="" asp-for="Description1">
+                    <span asp-validation-for="Description1" class="text-danger"></span>
+                    <br />
+                    <label for="exampleInputName1" asp-for="Description2">Şehir</label>
+                    <input type="text" class="form-control" placeholder="" asp-for="Description2">
+                    <span asp-validation-for="Description2" class="text-danger"></span>
+                    <br />
+                    <label for="exampleInputName1" asp-for="Description3">Posta Kodu</label>
+                    <input type="text" class="form-control" placeholder="" asp-for="Description3">
+                    <span asp-validation-for="Description3" class="text-danger"></span>
+                    <br />
+                    <label for="exampleInputName1" asp-for="Description4">Telefon Numarası</label>
+                    <input type="text" class="form-control" placeholder="" asp-for="Description4">
+                    <span asp-validation-for="Description4" class="text-danger"></span>
+                    <br />
+                    <label for="exampleInputName1" asp-for="Map">Harita</label>
+                    <input type="text" class="form-control" placeholder="" asp-for="Map">
+                    <span asp-validation-for="Map" class="text-danger"></span>
+                    <br />
+                </div>
+                <button type="submit" class="btn btn-outline-info">Güncelle</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+

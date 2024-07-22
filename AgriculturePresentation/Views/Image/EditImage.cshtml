@@ -1,16 +1,17 @@
 ﻿@model EntityLayer.Concrete.Image
 
 @{
-    ViewData["Title"] = "AddImage";
+    ViewData["Title"] = "EditImage";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
 <div class="col-12 grid-margin stretch-card">
     <div class="card">
         <div class="card-body">
-            <h4 class="card-title">Yeni Görsel Ekleme</h4>
+            <h4 class="card-title">Görsel Düzenleme Sayfası</h4>
             <form class="forms-sample" method="post">
                 <div class="form-group">
+                    @Html.HiddenFor(x => x.Id)
                     <label for="exampleInputName1" asp-for="Title">Başlık</label>
                     <input type="text" class="form-control" placeholder="Görsel Başlığı" asp-for="Title">
                     <span asp-validation-for="Title" class="text-danger"></span>
@@ -25,8 +26,10 @@
                     <input type="text" class="form-control" placeholder="Görsel Açıklaması" asp-for="Description">
                     <span asp-validation-for="Description" class="text-danger"></span>
                 </div>
-                <button type="submit" class="btn btn-outline-info">Yükle</button>
+                <button type="submit" class="btn btn-outline-info">Güncelle</button>
             </form>
         </div>
     </div>
 </div>
+
+
