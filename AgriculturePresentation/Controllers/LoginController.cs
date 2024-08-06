@@ -77,5 +77,11 @@ namespace AgriculturePresentation.Controllers
 
             return View(registerViewModel);
         }
-	}
+
+        public async Task<IActionResult> Logout()
+        {
+            await _signInManager.SignOutAsync();
+            return RedirectToAction("Index", "Login");
+        }
+    }
 }
